@@ -1,0 +1,74 @@
+{
+	
+	"game" : {
+
+		"speed" : 96,
+
+		"player_size" : 128,
+		"player_distance" : 128,
+
+		"balloons_size" : 64,
+		"balloons_distance" : 128,
+		"balloon_leakage" : 0.05,
+
+		"air_radius" : 16,
+		"air_amount" : 0.2,
+		"air_amount_max" : 3.5,
+
+		"crow_size" : 64,
+		"crow_speed_x" : 80,
+		"crow_speed_y" : 10,
+
+		"dark_cloud_size" : 192,
+		"dark_cloud_force" : 0.8,
+
+		"level_time"    : 60,
+		"game_time"    : 10
+
+	},
+
+	"chances" : {
+
+		"air_min_start"    : 4,
+		"air_max_start"    : 8,
+
+		"air_min_end"    : 8,
+		"air_max_end"    : 16,
+
+		"baloon_min_start"    : 32,
+		"baloon_max_start"    : 80,
+
+		"baloon_min_end"    : 64,
+		"baloon_max_end"    : 96,
+
+		"crow_min_start"    : 4,
+		"crow_max_start"    : 64,
+
+		"crow_min_end"    : 2,
+		"crow_max_end"    : 32,
+
+		"dark_cloud_min_start"    : 2,
+		"dark_cloud_max_start"    : 64,
+
+		"dark_cloud_min_end"    : 1,
+		"dark_cloud_max_end"    : 24,
+
+		"balloon_air_min" : 0.8,
+		"balloon_air_max" : 1.5,
+		"balloon_strength_min" : 0.5,
+		"balloon_strength_max" : 1,
+		"balloon_blowtime_min" : 4,
+		"balloon_blowtime_max" : 6,
+
+		"dark_cloud_lightning_chance" : 5
+
+	},
+
+	"colors" : {
+
+		"paper"    : "0xe2ca99",
+		"main"     : "0x000000"
+
+	}
+
+}

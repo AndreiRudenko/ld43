@@ -9,8 +9,8 @@ class Main {
 		Clay.init(
 			{
 				title: 'ld43',
-				width: 800,
-				height: 600,
+				width: 540,
+				height: 960,
 				window: {
 					mode: clay.types.WindowMode.Windowed,
 					resizable: false

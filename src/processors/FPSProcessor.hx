@@ -19,12 +19,8 @@ class FPSProcessor extends clay.Processor {
     var dt_average_span:Int = 60;
     var dt_average_count:Int = 0;
 
-    var ui_layer:Layer;
-
 
     override function init() {
-
-		ui_layer = Clay.layers.create('ui', 999);
         
     }
 
@@ -36,11 +32,12 @@ class FPSProcessor extends clay.Processor {
 				new components.FPS(),
 				new Text({
 					text: 'FPS:0', 
-					font: Clay.resources.font('assets/Montserrat-Bold.ttf'),
+					font: Clay.resources.font('assets/edosz.ttf'),
 					size: 24, 
-					layer: ui_layer
+					color: new clay.data.Color(0,0,0,1),
+					layer: Clay.layers.get('ui'),
 				}),
-				new Transform({pos: new Vector(Clay.screen.width - 100, 16)})
+				new Transform({pos: new Vector(Game.width - 100, 16)})
 			]
 		);
 

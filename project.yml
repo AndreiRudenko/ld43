@@ -5,7 +5,7 @@ project:
   version: '1.0.0'
   sources: ['src']
   assets: ['assets']
-  defines: []
+  defines: [no_debug_console]
   shaders: []
   libraries: []
 
@@ -22,17 +22,17 @@ android:
 
 app:
   name: ld43
-  icon: ''
+  icon: 'res/icon.png'
   
 html5:
   webgl: true
   canvas: 'kanvas'
   script: 'game'
-  width: 800
-  height: 600
+  width: 540 # 540
+  height: 960 # 960
   server_port: 8080
   html_file: ''
-  favicon: ''
+  favicon: 'res/icon.png'
   minify: false
 
 windows:
