@@ -94,7 +94,9 @@ class BalloonsProcessor extends clay.Processor {
 
 		bt.update();
 
-		Clay.audio.play_sound('pick2', 0.2);
+		var s = Clay.audio.play(Clay.resources.audio('assets/pick2.mp3'));
+		s.volume = 0.2;
+		// Clay.audio.play_sound('pick2', 0.2);
 
 	}
 
@@ -113,7 +115,10 @@ class BalloonsProcessor extends clay.Processor {
 		pe.count = Std.int(b.radius);
 		pe.pos.copy_from(bt.pos);
 		pe.emit();
-		Clay.audio.play_sound('pop${Clay.random.int(3)}', 0.5);
+
+		var s = Clay.audio.play(Clay.resources.audio('assets/pop${Clay.random.int(3)}.mp3'));
+		s.volume = 0.5;
+		// Clay.audio.play_sound('pop${Clay.random.int(3)}', 0.5);
 
 
 		if(Clay.random.bool(0.3 * (b.air_amount / Settings.air_amount_max))) {
@@ -148,7 +153,9 @@ class BalloonsProcessor extends clay.Processor {
 		pe.pos.set(pt.pos.x-48, pt.pos.y+16);
 		pe.start();
 
-		Clay.audio.play_sound('poop', 0.5);
+		var s = Clay.audio.play(Clay.resources.audio('assets/poop.mp3'));
+		s.volume = 0.5;
+		// Clay.audio.play_sound('poop', 0.5);
 
 	}
 
@@ -240,7 +247,6 @@ class BalloonsProcessor extends clay.Processor {
 		// pe.count = Std.int(b.radius);
 		pe.pos.set(t.pos.x, t.pos.y+32*t.scale.y);
 		pe.emit();
-		Clay.audio.play_sound('squeak${Clay.random.int(3)}', 0.2);
 
 	}
 
@@ -288,6 +294,8 @@ class BalloonsProcessor extends clay.Processor {
 					b.air_amount -= Settings.balloon_leakage / b.strength;
 					b.next_blow = Clay.random.float(Settings.balloon_blowtime_min, Settings.balloon_blowtime_max);
 					balloon_leak(t);
+					var s = Clay.audio.play(Clay.resources.audio('assets/squeak${Clay.random.int(3)}.mp3'));
+					s.volume = 0.2;
 				}
 
 				t.pos.y = pt.pos.y - Settings.balloons_distance;
@@ -373,7 +381,7 @@ class BalloonsProcessor extends clay.Processor {
 	}
 
 	var tmp_vec:Vector = new Vector();
-
+	var lst:Int = 0;
 	function check_collision(b:Balloon, bt:Transform, dt:Float) {
 
 		var ot:Transform;
@@ -405,7 +413,9 @@ class BalloonsProcessor extends clay.Processor {
 
 				b.air_amount += Settings.air_amount;
 				Clay.entities.destroy(e);
-				Clay.audio.play_sound('blow${Clay.random.int(3)}', 0.3);
+
+				var s = Clay.audio.play(Clay.resources.audio('assets/blow${Clay.random.int(3)}.mp3'));
+				s.volume = 0.2;
 
 				if(b.air_amount > Settings.air_amount_max) {
 					return true;
@@ -419,6 +429,12 @@ class BalloonsProcessor extends clay.Processor {
 			if(Intersect.circle_rectangle(bt.pos, b.radius, ot.pos, tmp_vec)) { 
 				b.air_amount -= Settings.dark_cloud_force * dt;
 				balloon_leak(bt);
+				lst--;
+				if(lst <= 0) {
+					var s = Clay.audio.play(Clay.resources.audio('assets/squeak${Clay.random.int(3)}.mp3'));
+					s.volume = 0.2;
+					lst = 6;
+				}
 			}
 		}
 

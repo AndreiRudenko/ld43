@@ -132,6 +132,7 @@ class Game {
 						'assets/pick2.mp3',
 						'assets/poop.mp3',
 						'assets/sheep.mp3',
+						'assets/music.mp3',
 						// 'assets/test.png',
 						'assets/edosz.ttf'
 					], 
@@ -229,20 +230,9 @@ class Game {
 
 	function setup_sounds() {
 
-		Clay.audio.create_sound('blow0', 'assets/blow0.mp3');
-		Clay.audio.create_sound('blow1', 'assets/blow1.mp3');
-		Clay.audio.create_sound('blow2', 'assets/blow2.mp3');
-		Clay.audio.create_sound('pop0', 'assets/pop0.mp3');
-		Clay.audio.create_sound('pop1', 'assets/pop1.mp3');
-		Clay.audio.create_sound('pop2', 'assets/pop2.mp3');
-		Clay.audio.create_sound('squeak0', 'assets/squeak0.mp3');
-		Clay.audio.create_sound('squeak1', 'assets/squeak1.mp3');
-		Clay.audio.create_sound('squeak2', 'assets/squeak2.mp3');
-		// Clay.audio.create_sound('pick0', 'assets/pick0.mp3');
-		// Clay.audio.create_sound('pick1', 'assets/pick1.mp3');
-		Clay.audio.create_sound('pick2', 'assets/pick2.mp3');
-		Clay.audio.create_sound('poop', 'assets/poop.mp3');
-		Clay.audio.create_sound('sheep', 'assets/sheep.mp3');
+		var s = Clay.audio.play(Clay.resources.audio('assets/music.mp3'));
+		s.volume = 0.2;
+		s.loop = true;
 
 	}
 

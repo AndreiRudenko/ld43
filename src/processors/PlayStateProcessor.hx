@@ -70,6 +70,11 @@ class PlayStateProcessor extends clay.Processor {
 		var pt = player_family.get_transform(Game.player.entity);
     	Clay.motion.tween(pt.origin).to({y: -256}, 0.8).ease(clay.tween.easing.Quad.easeIn);
 
+		Clay.timer.schedule(0.3,function() {
+			var s = Clay.audio.play(Clay.resources.audio('assets/sheep.mp3'));
+			s.volume = 0.3;
+		});
+
 		Clay.timer.schedule(1,function() {
 			world.processors.disable(processors.PlayStateProcessor);
 			world.processors.enable(processors.GameOverStateProcessor);

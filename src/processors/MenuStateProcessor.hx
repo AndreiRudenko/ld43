@@ -102,7 +102,8 @@ class MenuStateProcessor extends clay.Processor {
 
 		buzy = true;
 
-		Clay.audio.play_sound('sheep', 0.5);
+		var s = Clay.audio.play(Clay.resources.audio('assets/sheep.mp3'));
+		s.volume = 0.3;
 
     	Clay.motion.tween(balloon.pos).to({y: -512-66}, 0.9).ease(clay.tween.easing.Quad.easeIn);
     	Clay.motion.tween(thread.pos).to({y: -512+64}, 0.9).ease(clay.tween.easing.Quad.easeIn);
